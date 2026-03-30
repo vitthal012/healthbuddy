@@ -25,6 +25,7 @@ function App() {
     return () => clearTimeout(timer);
   }, []);
 
+  //if fetch---- button is clicked then show the card and remove othercards
   const fetchprotein=()=>{
     setfp(!fp);
     setfs(false); setfm(false);setfc(false);
@@ -45,14 +46,20 @@ function App() {
   return (
     
     <div className="App">
+
       <div className="bubble-overlay">
-        {[...Array(14)].map((_, i) => <span key={i}></span>)}
+         {/*random ball genration for beuty effect */}
+         {[...Array(14)].map((_, i) => <span key={i}></span>)}
       </div>
+
+      {/* the window which appear in the beginning describing the app */}
       {showWelcome && <Headcard />}
+
       <header className="app-header">
         <h1>HealthBuddy</h1>
         <p>Your personal health and nutrition assistant</p>
       </header>
+
       <div className="button-container">
         <Button value={"Protein"}   func={fetchprotein} />
         <Button value={"Creatine"}  func={fetchcreatine} />
@@ -60,6 +67,7 @@ function App() {
         <Button value={"Minerals"}  func={fetchminerals} />
       </div>
       <div className="content">
+        {/*Cards which load on clicking the buttons*/}
         {fp && <Card value={data.protein} />}
         {fc && <Card value={data.creatine} />}
         {fs && <Card value={data.steroids} />}

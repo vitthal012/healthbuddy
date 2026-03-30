@@ -16,10 +16,13 @@ async function start(){
     // connecting to mongodb
     await connectclus();
 
+    // connecting to google gen ai
     const ai = new GoogleGenAI({});
 
+    // searching for diet(the collection) in the database and converting the cursor to json with toArray()
     let data=await db.collection("diet").find().toArray();
 
+    // posting the user request to the chatbot 
     app.post('/chat',async(req,res)=>{
         let message=req.body.message;
         console.log(message);
@@ -31,10 +34,12 @@ async function start(){
         console.log(response.text);
     });
     
+    // getting preresearched data by me which appears in the beginnning of the cards before the chatbot 
     app.get('/',(req,res)=>{
         res.json(data[0]);
     });
     
+    // lalalal
     app.listen(process.env.PORT,()=>
         console.log(`server launched succeessfully at http://localhost:${process.env.PORT}`)
     );
@@ -44,4 +49,5 @@ async function start(){
  }
 }
 
+// using this so i can use async
 start();
