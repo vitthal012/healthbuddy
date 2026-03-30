@@ -4,7 +4,6 @@ import {useEffect, useState} from 'react';
 import Card from './components/card';
 import Headcard from './components/head_card';
 
-
 function App() {
   
   const [fp,setfp]=useState(false);

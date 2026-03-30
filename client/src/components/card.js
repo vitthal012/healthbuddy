@@ -1,4 +1,5 @@
 import { useState } from "react";
+import ReactMarkdown from "react-markdown";
 
 export default function Card({value}){
 
@@ -6,7 +7,6 @@ export default function Card({value}){
     const[ip,setip]=useState("");
 
     const sendmessage=async ()=>{
-        console.log("sendmessage is working:",`${process.env.REACT_APP_BACKEND_URL}chat`);
         try
         {
             let r=await fetch(`${process.env.REACT_APP_BACKEND_URL}chat`,{
@@ -24,12 +24,11 @@ export default function Card({value}){
     
     return(
     <>
-    {console.log(value)}
     <div className="card" dangerouslySetInnerHTML={{ __html: value }}></div>
     <input value={ip} onChange={(e)=>{setip(e.target.value)}} placeholder="            Enter Your Question Child" />
 
     <button onClick={sendmessage}>Send</button>
 
-    <div className="chatbot">{res}</div>
+    <div className="chatbot"><ReactMarkdown>{res}</ReactMarkdown></div>
     </>
     );}

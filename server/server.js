@@ -23,16 +23,34 @@ async function start(){
     let data=await db.collection("diet").find().toArray();
 
     // posting the user request to the chatbot 
-    app.post('/chat',async(req,res)=>{
-        let message=req.body.message;
-        console.log(message);
+    app.post('/chat', async (req, res) => {
+    let message = req.body.message;
+
+    const prompt = `
+                  You are a health and nutrition assistant.
+                  
+                  Give a clean, well-structured answer using proper Markdown.
+                  
+                  Rules:
+                  - Use bullet points with "-"
+                  - Use **bold headings**
+                  - Add line spacing
+                  - Keep it short and readable
+                  - No unnecessary paragraphs
+                  
+                  User question:${message}`;
+                  
+    try {
         const response = await ai.models.generateContent({
-        model: "gemini-3-flash-preview",
-        contents: `${message}`,
+            model: "gemini-3-flash-preview",
+            contents: prompt,
         });
-        res.json(response.text);
-        console.log(response.text);
-    });
+
+        res.json(response.text );
+    } catch (e) {
+        res.json("Error generating response" );
+    }
+});
     
     // getting preresearched data by me which appears in the beginnning of the cards before the chatbot 
     app.get('/',(req,res)=>{
