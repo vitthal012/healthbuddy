@@ -25,7 +25,7 @@ export default function Card({value}){
     return(
     <>
     {console.log(value)}
-    <div className="card">{value}</div>
+    <div className="card" dangerouslySetInnerHTML={{ __html: value }}></div>
     <input value={ip} onChange={(e)=>{setip(e.target.value)}} placeholder="Enter Your Question Child" />
 
     <button onClick={sendmessage}>Send</button>

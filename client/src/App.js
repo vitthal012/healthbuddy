@@ -30,7 +30,7 @@ function App() {
   }
 
   return (
-    <>
+    <div className="App">
       <Button value={"Protein"}   func={fetchprotein} />
       {fp?<Card  value={data.protein}/>:""}<br/>
       
@@ -42,7 +42,7 @@ function App() {
 
       <Button value={"Minerals"}  func={fetchminerals} />
       {fm?<Card  value={data.minerals}/>:""}<br/>
-    </>
+    </div>
   );
 }
 
