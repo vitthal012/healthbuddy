@@ -11,16 +11,16 @@ const client = new MongoClient(process.env.MONGODB_URL, {
   }
 });
 
-async function run() {
-  try {
-    // Connect the client to the server	(optional starting in v4.7)
-    await client.connect();
-    // Send a ping to confirm a successful connection
-    await client.db("admin").command({ ping: 1 });
-    console.log("Pinged your deployment. You successfully connected to MongoDB!");
-  } finally {
-    // Ensures that the client will close when you finish/error
-    await client.close();
-  }
+let db;
+
+async function connectclus(){
+
+  console.log("connecting to client");
+  await client.connect();
+  console.log("client connected");
+
+  db=await client.db("healthbuddy");
+  console.log("db connected");
 }
-export default run;
+
+export {connectclus,db};

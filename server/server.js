@@ -1,5 +1,5 @@
 import express from 'express';
-import run from './db/mongodb.js';
+import {connectclus,db }from './db/mongodb.js';
 import dotenv from 'dotenv'
 import cors from 'cors';
 
@@ -11,10 +11,12 @@ app.use(cors());
 async function start(){
  try{
 
-    await run(); 
+    await connectclus();
 
+    let data=await db.collection("diet").find().toArray();
+    
     app.get('/',(req,res)=>{
-        res.json({hello:"vitthal"})
+        res.json(data[0]);
     });
     
     app.listen(process.env.PORT,()=>

@@ -1,6 +1,6 @@
-export default function(){
+export default function Card({value}){
     return(
-    <>
+    <>{value}
     </>
     );
 }
