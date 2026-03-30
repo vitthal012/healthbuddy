@@ -1,89 +1,118 @@
 .App {
   text-align: center;
-  font-family: 'Arial', sans-serif;
-  background-color: #f0f8f0;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background: linear-gradient(135deg, #f0f8f0 0%, #e8f5e8 100%);
   min-height: 100vh;
   padding: 20px;
-}
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+  color: #333;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
+.app-header {
+  background: linear-gradient(135deg, #4CAF50 0%, #45a049 100%);
   color: white;
+  padding: 40px 20px;
+  border-radius: 15px;
+  margin-bottom: 30px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
 }
 
-.App-link {
-  color: #61dafb;
+.app-header h1 {
+  margin: 0;
+  font-size: 3rem;
+  font-weight: 300;
+  text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.app-header p {
+  margin: 10px 0 0 0;
+  font-size: 1.2rem;
+  opacity: 0.9;
 }
 
-/* HealthBuddy Styles */
+.button-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 15px;
+  margin-bottom: 30px;
+}
+
 button {
-  background-color: #4CAF50;
+  background: linear-gradient(135deg, #4CAF50 0%, #66BB6A 100%);
   color: white;
   border: none;
-  padding: 10px 20px;
-  margin: 10px;
+  padding: 15px 30px;
+  margin: 0;
   cursor: pointer;
-  border-radius: 5px;
+  border-radius: 25px;
   font-size: 16px;
-  transition: background-color 0.3s;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 8px rgba(76, 175, 80, 0.3);
+  text-transform: uppercase;
+  letter-spacing: 1px;
 }
 
 button:hover {
-  background-color: #45a049;
+  background: linear-gradient(135deg, #45a049 0%, #4CAF50 100%);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 12px rgba(76, 175, 80, 0.4);
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
 }
 
 .card {
-  background-color: white;
-  border: 1px solid #ddd;
-  border-radius: 8px;
-  padding: 20px;
-  margin: 20px auto;
-  max-width: 600px;
-  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  background: white;
+  border: none;
+  border-radius: 15px;
+  padding: 30px;
+  margin: 0;
+  max-width: 700px;
+  width: 100%;
+  box-shadow: 0 8px 16px rgba(0,0,0,0.1);
   text-align: left;
+  transition: transform 0.3s ease;
+}
+
+.card:hover {
+  transform: translateY(-5px);
 }
 
 .chatbot {
-  background-color: #e8f5e8;
-  border: 1px solid #c8e6c9;
-  border-radius: 8px;
-  padding: 15px;
-  margin: 20px auto;
-  max-width: 600px;
-  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  background: linear-gradient(135deg, #e8f5e8 0%, #f1f8e9 100%);
+  border: 2px solid #c8e6c9;
+  border-radius: 15px;
+  padding: 20px;
+  margin: 0;
+  max-width: 700px;
+  width: 100%;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
   text-align: left;
+  transition: all 0.3s ease;
+}
+
+.chatbot:hover {
+  border-color: #4CAF50;
 }
 
 input {
-  padding: 10px;
-  margin: 10px;
-  border: 1px solid #ccc;
-  border-radius: 4px;
+  padding: 12px 20px;
+  margin: 10px 0;
+  border: 2px solid #ddd;
+  border-radius: 25px;
   width: 300px;
   max-width: 80%;
+  font-size: 16px;
+  transition: border-color 0.3s ease;
+}
+
+input:focus {
+  outline: none;
+  border-color: #4CAF50;
+  box-shadow: 0 0 8px rgba(76, 175, 80, 0.3);
 }

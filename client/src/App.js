@@ -18,30 +18,39 @@ function App() {
 
   const fetchprotein=()=>{
     setfp(!fp);
+    setfs(false); setfm(false);setfc(false);
   }
   const fetchcreatine=()=>{
     setfc(!fc);
+    setfp(false); setfs(false); setfm(false);
   }
   const fetchsteroids=()=>{
     setfs(!fs);
+    setfp(false); setfc(false); setfm(false);
   }
   const fetchminerals=()=>{
     setfm(!fm);
+    setfp(false); setfs(false); setfc(false);
   }
 
   return (
     <div className="App">
-      <Button value={"Protein"}   func={fetchprotein} />
-      {fp?<Card  value={data.protein}/>:""}<br/>
-      
-      <Button value={"Creatine"}  func={fetchcreatine} />
-      {fc?<Card  value={data.creatine}/>:""}<br/>
-
-      <Button value={"Steroids"}  func={fetchsteroids} />
-      {fs?<Card  value={data.steroids}/>:""}<br/>
-
-      <Button value={"Minerals"}  func={fetchminerals} />
-      {fm?<Card  value={data.minerals}/>:""}<br/>
+      <header className="app-header">
+        <h1>HealthBuddy</h1>
+        <p>Your personal health and nutrition assistant</p>
+      </header>
+      <div className="button-container">
+        <Button value={"Protein"}   func={fetchprotein} />
+        <Button value={"Creatine"}  func={fetchcreatine} />
+        <Button value={"Steroids"}  func={fetchsteroids} />
+        <Button value={"Minerals"}  func={fetchminerals} />
+      </div>
+      <div className="content">
+        {fp && <Card value={data.protein} />}
+        {fc && <Card value={data.creatine} />}
+        {fs && <Card value={data.steroids} />}
+        {fm && <Card value={data.minerals} />}
+      </div>
     </div>
   );
 }
