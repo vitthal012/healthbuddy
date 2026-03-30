@@ -24,6 +24,7 @@ export default function Card({value}){
     
     return(
     <>
+    {console.log(value)}
     <div className="card">{value}</div>
     <input value={ip} onChange={(e)=>{setip(e.target.value)}} placeholder="Enter Your Question Child" />
 
