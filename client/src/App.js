@@ -2,6 +2,7 @@ import './App.css';
 import Button from './components/button'; 
 import {useEffect, useState} from 'react';
 import Card from './components/card';
+import Headcard from './components/head_card';
 
 
 function App() {
@@ -11,10 +12,18 @@ function App() {
   const [fs,setfs]=useState(false);
   const [fm,setfm]=useState(false);
   const [data,setdata]=useState({"protein":""});
+  const [showWelcome, setShowWelcome] = useState(true);
 
   useEffect(()=>{
     fetch(`${process.env.REACT_APP_BACKEND_URL}`).then(res=> res.json()).then(d=>{setdata(d);});
   },[]);
+
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setShowWelcome(false);
+    }, 4000); 
+    return () => clearTimeout(timer);
+  }, []);
 
   const fetchprotein=()=>{
     setfp(!fp);
@@ -34,7 +43,12 @@ function App() {
   }
 
   return (
+    
     <div className="App">
+      <div className="bubble-overlay">
+        {[...Array(14)].map((_, i) => <span key={i}></span>)}
+      </div>
+      {showWelcome && <Headcard />}
       <header className="app-header">
         <h1>HealthBuddy</h1>
         <p>Your personal health and nutrition assistant</p>
