@@ -32,16 +32,16 @@ function App() {
   return (
     <>
       <Button value={"Protein"}   func={fetchprotein} />
-      {fp?<Card type={"protein"}  value={data.protein}/>:""}<br/>
+      {fp?<Card  value={data.protein}/>:""}<br/>
       
       <Button value={"Creatine"}  func={fetchcreatine} />
-      {fc?<Card type={"creatine"} value={data.creatine}/>:""}<br/>
+      {fc?<Card  value={data.creatine}/>:""}<br/>
 
       <Button value={"Steroids"}  func={fetchsteroids} />
-      {fs?<Card type={"steroids"} value={data.steroids}/>:""}<br/>
+      {fs?<Card  value={data.steroids}/>:""}<br/>
 
-      <Button value={"Minerals"} func={fetchminerals} />
-      {fm?<Card type={"minerals"} value={data.minerals}/>:""}<br/>
+      <Button value={"Minerals"}  func={fetchminerals} />
+      {fm?<Card  value={data.minerals}/>:""}<br/>
     </>
   );
 }
