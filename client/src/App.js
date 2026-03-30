@@ -16,8 +16,6 @@ function App() {
     fetch(`${process.env.REACT_APP_BACKEND_URL}`).then(res=> res.json()).then(d=>{setdata(d);});
   },[]);
 
-  console.log(data);
-
   const fetchprotein=()=>{
     setfp(!fp);
   }
@@ -33,14 +31,17 @@ function App() {
 
   return (
     <>
-      <Button value={"Protein"}  func={fetchprotein} />
-      {fp?<Card value={data.protein}/>:""}<br/>
-      <Button value={"Creatine"} func={fetchcreatine} />
-      {fc?<Card value={data.creatine}/>:""}<br/>
-      <Button value={"Steroids"} func={fetchsteroids} />
-      {fs?<Card value={data.steroids}/>:""}<br/>
+      <Button value={"Protein"}   func={fetchprotein} />
+      {fp?<Card type={"protein"}  value={data.protein}/>:""}<br/>
+      
+      <Button value={"Creatine"}  func={fetchcreatine} />
+      {fc?<Card type={"creatine"} value={data.creatine}/>:""}<br/>
+
+      <Button value={"Steroids"}  func={fetchsteroids} />
+      {fs?<Card type={"steroids"} value={data.steroids}/>:""}<br/>
+
       <Button value={"Minerals"} func={fetchminerals} />
-      {fm?<Card value={data.minerals}/>:""}<br/>
+      {fm?<Card type={"minerals"} value={data.minerals}/>:""}<br/>
     </>
   );
 }

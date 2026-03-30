@@ -6,6 +6,7 @@ import cors from 'cors';
 dotenv.config();
 const app=express();
 
+app.use(express.json());
 app.use(cors());
 
 async function start(){
@@ -14,6 +15,23 @@ async function start(){
     await connectclus();
 
     let data=await db.collection("diet").find().toArray();
+
+    app.post('/chatprotein',(req,res)=>{
+        let message=req.body;
+        res.json(req.body);
+    });
+    app.post('/chatcreatine',(req,res)=>{
+        let message=req.body;
+        res.json(req.body);
+    });
+    app.post('/chatsteroids',(req,res)=>{
+        let message=req.body;
+        res.json(req.body);
+    });
+    app.post('/chatminerals',(req,res)=>{
+        let message=req.body;
+        res.json(req.body);
+    });
     
     app.get('/',(req,res)=>{
         res.json(data[0]);
