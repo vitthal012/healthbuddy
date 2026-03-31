@@ -10,7 +10,7 @@ function App() {
   const [fc,setfc]=useState(false);
   const [fs,setfs]=useState(false);
   const [fm,setfm]=useState(false);
-  const [data,setdata]=useState({"protein":""});
+  const [data,setdata]=useState({"protein":"Loading..."});
   const [showWelcome, setShowWelcome] = useState(true);
 
   useEffect(()=>{

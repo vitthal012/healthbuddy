@@ -20,7 +20,7 @@ export default function Card({value}){
             console.log(e.message)
             setres(`Error occured while sending message: ${e.message}`);
         }
-}
+    }
     
     return(
     <>
